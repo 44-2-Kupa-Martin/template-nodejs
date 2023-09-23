@@ -4,6 +4,10 @@ import db from "./database.js";
 const app = express();
 const port = process.env.PORT ?? 3000;
 
+if (!fs.existsSync("./files")) {
+    fs.mkdirSync("./files");
+}
+
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
